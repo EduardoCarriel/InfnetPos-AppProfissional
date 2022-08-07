@@ -16,4 +16,9 @@ public class Endereco {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
+	
+	@Override
+	public String toString() {
+		return cep + ";" + logradouro + ";" + numero + ";" + bairro + ";" + cidade + ";" + estado;
+	}
 }

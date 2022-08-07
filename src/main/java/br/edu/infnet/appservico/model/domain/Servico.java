@@ -1,7 +1,14 @@
 package br.edu.infnet.appservico.model.domain;
 
 public class Servico {
-	private int codigo;
-	private String descricao;
-	private float valor;	
+	public int codigo;
+	public String descricao;
+	public float valor;
+	
+	@Override
+	public String toString() {
+		return codigo + ";" + descricao + ";" + valor;
+	}
+	
+	
 }

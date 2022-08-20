@@ -103,6 +103,11 @@
 	        <td>Descrição do serviço cadastrado.</td>
 	      </tr>
 	      <tr>
+	        <td>tipoCobranca</td>
+	        <td>EnumTipoCobranca</td>
+	        <td>Indicador do tipo de cobrança. Ex: Dia, Mês, Quantidade, etc.</td>
+	      </tr>
+	      <tr>
 	        <td>valor</td>
 	        <td>float</td>
 	        <td>Valor do serviço cadastrado.</td>
@@ -172,11 +177,6 @@
 	        <td>retornoProximoMes</td>
 	        <td>Boolean</td>
 	        <td>Indica se o serviço terá consulta de retorno no próximo mês para verificação.</td>
-	      </tr>
-	      <tr>
-	        <td>quantidadeSessao</td>
-	        <td>int</td>
-	        <td>Quantidade de sessões para prestação de serviço.</td>
 	      </tr>
 	    </tbody>
 	  </table>

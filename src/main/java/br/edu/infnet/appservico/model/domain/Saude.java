@@ -5,10 +5,13 @@ public class Saude extends Servico {
 	public int idadeMinima;
 	public int idadeMaxima;
 	public boolean retornoProximoMes;
-	public int quantidadeSessao;
+	
+	public Saude() {
+		this.tipoCobranca = EnumTipoCobranca.QUANTIDADE;
+	}
 	
 	@Override
 	public String toString() {
-		return especialidade + ";" + idadeMinima + ";" + idadeMaxima + ";" + retornoProximoMes + ";" + quantidadeSessao + ";" + super.toString();
+		return especialidade + ";" + idadeMinima + ";" + idadeMaxima + ";" + retornoProximoMes + ";" + super.toString();
 	}
 }

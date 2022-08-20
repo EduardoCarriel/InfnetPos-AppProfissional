@@ -28,7 +28,6 @@ public class SaudeTeste implements ApplicationRunner {
 		s2.descricao = "Reabilitação após cirurgia de ombro";
 		s2.valor = 150;
 		s2.especialidade = "Fisioterapia";
-		s2.quantidadeSessao = 12;
 		System.out.println(s2);
 		
 		Saude s3 = new Saude();

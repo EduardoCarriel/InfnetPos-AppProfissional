@@ -1,6 +1,6 @@
 package br.edu.infnet.appservico.model.domain;
 
-public class Servico {
+public abstract class Servico {
 	public enum EnumTipoCobranca {
 		QUANTIDADE("Quantidade"),
 		HORA("Hora"),
@@ -24,18 +24,52 @@ public class Servico {
 	    }
 	}
 	
-	public int codigo;
-	public String descricao;
+	private int codigo;
+	private String descricao;
 	protected EnumTipoCobranca tipoCobranca;
-	public float quantidade;
-	public float valor;
+	private float quantidade;
+	private float valorUnitario;
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public float getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(float quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public float getValorUnitario() {
+		return valorUnitario;
+	}
+
+	public void setValorUnitario(float valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+
+	public abstract void impressao();
 	
 	public float calcularServico() {
-		return quantidade * valor;
+		return quantidade * valorUnitario;
 	}
 	
 	@Override
 	public String toString() {
-		return codigo + ";" + descricao + ";" + tipoCobranca + ";" + valor + ";" + calcularServico();
+		return codigo + ";" + descricao + ";" + tipoCobranca + ";" + valorUnitario + ";" + calcularServico();
 	}
 }

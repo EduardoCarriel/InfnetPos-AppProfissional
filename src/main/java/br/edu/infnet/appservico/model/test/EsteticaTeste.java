@@ -13,26 +13,31 @@ public class EsteticaTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("## Estética ##");
+		
 		Estetica e1 = new Estetica();
-		e1.codigo = 1;
-		e1.descricao = "Limpeza de pele";
-		e1.valor = 70;
-		e1.diasRetorno = 20;
-		e1.facial = true;
-		System.out.println(e1);
+		e1.setCodigo(1);
+		e1.setDescricao("Limpeza de pele");
+		e1.setQuantidade(1);
+		e1.setValorUnitario(70);
+		e1.setDiasRetorno(20);
+		e1.setFacial(true);
+		new AppServico("Inclusão do Serviço " + e1.getDescricao() + "!").relatorio(e1);
 		
 		Estetica e2 = new Estetica();
-		e2.codigo = 8;
-		e2.descricao = "Massagem completa";
-		e2.valor = 220;
-		e2.corporal = true;
-		System.out.println(e2);
+		e2.setCodigo(8);
+		e2.setDescricao("Massagem completa");
+		e2.setQuantidade(1);
+		e2.setValorUnitario(220);
+		e2.setCorporal(true);
+		new AppServico("Inclusão do Serviço " + e2.getDescricao() + "!").relatorio(e2);
 		
 		Estetica e3 = new Estetica();
-		e3.codigo = 17;
-		e3.descricao = "Corte e pintura com mechas";
-		e3.valor = 550;
-		e3.capilar = true;
-		System.out.println(e3);
+		e3.setCodigo(17);
+		e3.setDescricao("Corte e pintura com mechas");
+		e3.setQuantidade(1);
+		e3.setValorUnitario(550);
+		e3.setCapilar(true);
+		new AppServico("Inclusão do Serviço " + e3.getDescricao() + "!").relatorio(e3);
 	}
 }

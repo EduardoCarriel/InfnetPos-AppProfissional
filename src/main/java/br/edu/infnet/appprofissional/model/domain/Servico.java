@@ -1,5 +1,7 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import java.util.Objects;
+
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
 public abstract class Servico implements IPrinter {
@@ -69,5 +71,22 @@ public abstract class Servico implements IPrinter {
 	@Override
 	public String toString() {
 		return codigo + ";" + descricao + ";" + tipoCobranca + ";" + valorUnitario + ";" + calcularServico();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Servico other = (Servico) obj;
+		return codigo == other.codigo;
 	}
 }

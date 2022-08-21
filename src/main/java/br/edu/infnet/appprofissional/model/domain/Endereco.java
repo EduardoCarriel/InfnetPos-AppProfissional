@@ -10,6 +10,8 @@ public class Endereco implements IPrinter {
 	private String cidade;
 	private String estado;
 	
+	public Endereco() {}
+	
 	public Endereco(int cep, String logradouro, int numero, String bairro, String cidade, String estado) {
 		this.cep = cep;
 		this.logradouro = logradouro;

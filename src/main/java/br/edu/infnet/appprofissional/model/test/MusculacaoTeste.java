@@ -16,9 +16,11 @@ public class MusculacaoTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Musculação ##");
 		
+		//Exemplo com construtor
 		Musculacao m1 = new Musculacao(1,"Treino para Resistência Muscular",6,100,true,false,true);
 		AppImpressao.relatorio("Inclusão do Serviço " + m1.getDescricao() + "!", m1);
 		
+		//Exemplo com métodos Setters
 		Musculacao m2 = new Musculacao();
 		m2.setCodigo(2);
 		m2.setDescricao("Treino para Hipertrofia Muscular");

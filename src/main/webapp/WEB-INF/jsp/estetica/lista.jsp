@@ -40,7 +40,7 @@
 	  <h2>AppProfissional</h2>
 	  <p>Projeto de cadastro de serviços</p>
 	  
-	  <h3>Classe: Musculacao</h3>	
+	  <h3>Classe: Estetica</h3>	
 	  <table class="table table-bordered">
 	    <thead>
 	      <tr>
@@ -50,9 +50,10 @@
 	        <th>Tipo de Cobrança</th>
 	        <th>Quantidade</th>
 	        <th>Valor Unitário</th>
-	        <th>Personal Trainer</th>
-	        <th>Dieta</th>
-	        <th>Avaliação Física</th>
+	        <th>Dias retorno</th>
+	        <th>Facial</th>
+	        <th>Corporal</th>
+	        <th>Capilar</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -65,10 +66,11 @@
 		        <td>${i.tipoCobranca}</td>
 		        <td>${i.quantidade}</td>
 		        <td>${i.valorUnitario}</td>
-		        <td>${i.personalTrainer}</td>
-		        <td>${i.dieta}</td>
-		        <td>${i.avaliacaoFisica}</td>
-		        <td><a href="/musculacao/${i.id}/excluir">excluir</a></td>
+		        <td>${i.diasRetorno}</td>
+		        <td>${i.facial}</td>
+		        <td>${i.corporal}</td>
+		        <td>${i.capilar}</td>
+		        <td><a href="/estetica/${i.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>
 	    </tbody>

@@ -7,6 +7,7 @@ import java.util.Set;
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
 public class Profissional implements IPrinter {
+	private int id;
 	private int codigo;
 	private LocalDateTime dataCadastro;
 	private String nome;
@@ -21,12 +22,28 @@ public class Profissional implements IPrinter {
 		this.endereco = endereco;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public LocalDateTime getDataCadastro() {
+		return dataCadastro;
+	}
+	
+	public String getDataCadastroFormatada() {
+		return dataCadastro.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 	}
 
 	public String getNome() {

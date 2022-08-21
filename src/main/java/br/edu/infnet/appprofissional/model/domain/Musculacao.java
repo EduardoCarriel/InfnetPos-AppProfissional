@@ -5,12 +5,15 @@ public class Musculacao extends Servico {
 	private boolean dieta;
 	private boolean avaliacaoFisica;
 	
-	public Musculacao() {}
+	public Musculacao() {
+		this.tipoCobranca = EnumTipoCobranca.MES;
+	}
 	
 	public Musculacao(int codigo, String descricao, float quantidade, float valorUnitario, boolean personalTrainer, boolean dieta, boolean avaliacaoFisica) {
 		this.tipoCobranca = EnumTipoCobranca.MES;
 		this.setCodigo(codigo);
 		this.setDescricao(descricao);
+		this.setQuantidade(quantidade);
 		this.setValorUnitario(valorUnitario);
 		this.personalTrainer = personalTrainer;
 		this.dieta = dieta;

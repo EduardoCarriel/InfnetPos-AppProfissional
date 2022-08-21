@@ -13,33 +13,33 @@ import br.edu.infnet.appprofissional.AppImpressao;
 import br.edu.infnet.appprofissional.model.domain.*;
 
 @Controller
-public class MusculacaoController {
-	private static Map<Integer, Musculacao> mapaMusculacao = new HashMap<Integer, Musculacao>();
+public class SaudeController {
+	private static Map<Integer, Saude> mapaSaude = new HashMap<Integer, Saude>();
 	private static Integer id = 1;
 	
-	public static void incluir(Musculacao musculacao) {
-		musculacao.setId(id++);
-		mapaMusculacao.put(musculacao.getId(), musculacao);
-		AppImpressao.relatorio("Inclusão do Serviço " + musculacao.getDescricao() + "!", musculacao);
+	public static void incluir(Saude saude) {
+		saude.setId(id++);
+		mapaSaude.put(saude.getId(), saude);
+		AppImpressao.relatorio("Inclusão do Serviço " + saude.getDescricao() + "!", saude);
 	}
 	
 	public static void excluir(Integer id) {
-		mapaMusculacao.remove(id);
+		mapaSaude.remove(id);
 	}
 	
-	public static Collection<Musculacao> obterLista() {
-		return mapaMusculacao.values();
+	public static Collection<Saude> obterLista() {
+		return mapaSaude.values();
 	}
 	
-	@GetMapping(value = "/musculacao/lista")
+	@GetMapping(value = "/saude/lista")
 	public String telaLista(Model model) {
 		model.addAttribute("listagem", obterLista());
-		return "musculacao/lista";
+		return "saude/lista";
 	}
 	
-	@GetMapping(value = "/musculacao/{id}/excluir")
+	@GetMapping(value = "/saude/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
 		excluir(id);
-		return "redirect:/musculacao/lista";
+		return "redirect:/saude/lista";
 	}
 }

@@ -3,6 +3,7 @@ package br.edu.infnet.appprofissional.model.domain;
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
 public class Endereco implements IPrinter {
+	private int id;
 	private int cep;
 	private String logradouro;
 	private int numero;
@@ -21,6 +22,14 @@ public class Endereco implements IPrinter {
 		this.estado = estado;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getCep() {
 		return cep;
 	}

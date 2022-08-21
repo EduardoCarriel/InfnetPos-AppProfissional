@@ -8,7 +8,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.AppImpressao;
+import br.edu.infnet.appprofissional.controller.ProfissionalController;
 import br.edu.infnet.appprofissional.model.domain.Endereco;
 import br.edu.infnet.appprofissional.model.domain.Estetica;
 import br.edu.infnet.appprofissional.model.domain.Musculacao;
@@ -45,7 +45,7 @@ public class ProfissionalTeste implements ApplicationRunner {
 		p1.setEmail("testeemail1@gmail.com");
 		p1.setTelefoneCelular("(41) 9 6666-7777");
 		p1.setServicos(listaServicoP1);
-		AppImpressao.relatorio("Inclusão do Profissional " + p1.getNome() + "!", p1);
+		ProfissionalController.incluir(p1);
 		
 		//Forma 1 - Instânciar o objeto em uma variável e usar o método setEndereco
 		//Endereco e1 = new Endereco(80330777, "Rua Teste01", 650, "Santa Quitéria", "Curitiba", "Paraná");
@@ -102,7 +102,7 @@ public class ProfissionalTeste implements ApplicationRunner {
 		p2.setEmail("testeemail2@gmail.com");
 		p2.setTelefoneCelular("(41) 9 7777-8888");
 		p2.setServicos(listaServicoP2);
-		AppImpressao.relatorio("Inclusão do Profissional " + p2.getNome() + "!", p2);
+		ProfissionalController.incluir(p2);
 		
 		//############################### Profissional 2 ###############################
 		
@@ -142,6 +142,6 @@ public class ProfissionalTeste implements ApplicationRunner {
 		p3.setEmail("testeemail3@gmail.com");
 		p3.setTelefoneCelular("(41) 9 8888-9999");
 		p3.setServicos(listaServicoP3);
-		AppImpressao.relatorio("Inclusão do Profissional " + p3.getNome() + "!", p3);
+		ProfissionalController.incluir(p3);
 	}
 }

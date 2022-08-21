@@ -20,19 +20,16 @@
 	        <a class="nav-link" href="/musculacao/lista">Musculação</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Saude</a>
+	        <a class="nav-link" href="/saude/lista">Saude</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Estética</a>
+	        <a class="nav-link" href="/estetica/lista">Estética</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Serviço</a>
+	        <a class="nav-link" href="/profissional/lista">Profissional</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Profissional</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Endereço</a>
+	        <a class="nav-link" href="/endereco/lista">Endereço</a>
 	      </li>
 	    </ul>
 	  </div>

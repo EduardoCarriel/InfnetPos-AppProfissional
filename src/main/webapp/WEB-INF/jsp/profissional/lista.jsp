@@ -40,19 +40,16 @@
 	  <h2>AppProfissional</h2>
 	  <p>Projeto de cadastro de serviços</p>
 	  
-	  <h3>Classe: Musculacao</h3>	
+	  <h3>Classe: Profissional</h3>	
 	  <table class="table table-bordered">
 	    <thead>
 	      <tr>
 	      	<th>ID</th>
 	        <th>Código</th>
-	        <th>Descrição</th>
-	        <th>Tipo de Cobrança</th>
-	        <th>Quantidade</th>
-	        <th>Valor Unitário</th>
-	        <th>Personal Trainer</th>
-	        <th>Dieta</th>
-	        <th>Avaliação Física</th>
+	        <th>Data Cadastro</th>
+	        <th>Nome</th>
+	        <th>Celular</th>
+	        <th>Email</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -61,14 +58,11 @@
 		      <tr>
 		      	<td>${i.id}</td>
 		        <td>${i.codigo}</td>
-		        <td>${i.descricao}</td>
-		        <td>${i.tipoCobranca}</td>
-		        <td>${i.quantidade}</td>
-		        <td>${i.valorUnitario}</td>
-		        <td>${i.personalTrainer}</td>
-		        <td>${i.dieta}</td>
-		        <td>${i.avaliacaoFisica}</td>
-		        <td><a href="/musculacao/${i.id}/excluir">excluir</a></td>
+		        <td>${i.getDataCadastroFormatada()}</td>
+		        <td>${i.nome}</td>
+		        <td>${i.telefoneCelular}</td>
+		        <td>${i.email}</td>
+		        <td><a href="/profissional/${i.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>
 	    </tbody>

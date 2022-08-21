@@ -6,6 +6,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appprofissional.AppImpressao;
+import br.edu.infnet.appprofissional.controller.EsteticaController;
 import br.edu.infnet.appprofissional.model.domain.Estetica;
 
 @Component
@@ -23,7 +24,7 @@ public class EsteticaTeste implements ApplicationRunner {
 		e1.setValorUnitario(70);
 		e1.setDiasRetorno(20);
 		e1.setFacial(true);
-		AppImpressao.relatorio("Inclusão do Serviço " + e1.getDescricao() + "!", e1);
+		EsteticaController.incluir(e1);
 		
 		Estetica e2 = new Estetica();
 		e2.setCodigo(8);
@@ -31,7 +32,7 @@ public class EsteticaTeste implements ApplicationRunner {
 		e2.setQuantidade(1);
 		e2.setValorUnitario(220);
 		e2.setCorporal(true);
-		AppImpressao.relatorio("Inclusão do Serviço " + e2.getDescricao() + "!", e2);
+		EsteticaController.incluir(e2);
 		
 		Estetica e3 = new Estetica();
 		e3.setCodigo(17);
@@ -39,6 +40,6 @@ public class EsteticaTeste implements ApplicationRunner {
 		e3.setQuantidade(1);
 		e3.setValorUnitario(550);
 		e3.setCapilar(true);
-		AppImpressao.relatorio("Inclusão do Serviço " + e3.getDescricao() + "!", e3);
+		EsteticaController.incluir(e3);
 	}
 }

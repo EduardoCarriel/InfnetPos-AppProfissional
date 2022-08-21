@@ -40,19 +40,17 @@
 	  <h2>AppProfissional</h2>
 	  <p>Projeto de cadastro de serviços</p>
 	  
-	  <h3>Classe: Musculacao</h3>	
+	  <h3>Classe: Endereco</h3>	
 	  <table class="table table-bordered">
 	    <thead>
 	      <tr>
 	      	<th>ID</th>
-	        <th>Código</th>
-	        <th>Descrição</th>
-	        <th>Tipo de Cobrança</th>
-	        <th>Quantidade</th>
-	        <th>Valor Unitário</th>
-	        <th>Personal Trainer</th>
-	        <th>Dieta</th>
-	        <th>Avaliação Física</th>
+	        <th>Cep</th>
+	        <th>Logradouro</th>
+	        <th>Número</th>
+	        <th>Bairro</th>
+	        <th>Cidade</th>
+	        <th>Estado</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -60,15 +58,13 @@
 		    <c:forEach var="i" items="${listagem}">
 		      <tr>
 		      	<td>${i.id}</td>
-		        <td>${i.codigo}</td>
-		        <td>${i.descricao}</td>
-		        <td>${i.tipoCobranca}</td>
-		        <td>${i.quantidade}</td>
-		        <td>${i.valorUnitario}</td>
-		        <td>${i.personalTrainer}</td>
-		        <td>${i.dieta}</td>
-		        <td>${i.avaliacaoFisica}</td>
-		        <td><a href="/musculacao/${i.id}/excluir">excluir</a></td>
+		        <td>${i.cep}</td>
+		        <td>${i.logradouro}</td>
+		        <td>${i.numero}</td>
+		        <td>${i.bairro}</td>
+		        <td>${i.cidade}</td>
+		        <td>${i.estado}</td>
+		        <td><a href="/endereco/${i.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>
 	    </tbody>

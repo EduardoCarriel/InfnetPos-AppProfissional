@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.AppImpressao;
+import br.edu.infnet.appprofissional.controller.MusculacaoController;
 import br.edu.infnet.appprofissional.model.domain.Musculacao;
 
 @Component
@@ -18,7 +18,7 @@ public class MusculacaoTeste implements ApplicationRunner {
 		
 		//Exemplo com construtor
 		Musculacao m1 = new Musculacao(1,"Treino para Resistência Muscular",6,100,true,false,true);
-		AppImpressao.relatorio("Inclusão do Serviço " + m1.getDescricao() + "!", m1);
+		MusculacaoController.incluir(m1);
 		
 		//Exemplo com métodos Setters
 		Musculacao m2 = new Musculacao();
@@ -28,9 +28,9 @@ public class MusculacaoTeste implements ApplicationRunner {
 		m2.setValorUnitario(150);
 		m2.setDieta(true);
 		m2.setAvaliacaoFisica(true);
-		AppImpressao.relatorio("Inclusão do Serviço " + m2.getDescricao() + "!", m2);
+		MusculacaoController.incluir(m2);
 		
 		Musculacao m3 = new Musculacao(3,"Treino de Força Muscular",12,200,true,true,true);
-		AppImpressao.relatorio("Inclusão do Serviço " + m3.getDescricao() + "!", m3);
+		MusculacaoController.incluir(m3);
 	}
 }

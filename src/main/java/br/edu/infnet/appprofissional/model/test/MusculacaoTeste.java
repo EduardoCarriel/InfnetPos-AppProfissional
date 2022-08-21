@@ -16,7 +16,7 @@ public class MusculacaoTeste implements ApplicationRunner {
 		System.out.println("## Musculação ##");
 		
 		Musculacao m1 = new Musculacao(1,"Treino para Resistência Muscular",6,100,true,false,true);
-		new AppServico("Inclusão do Serviço " + m1.getDescricao() + "!").relatorio(m1);
+		new AppProfissional("Inclusão do Serviço " + m1.getDescricao() + "!").relatorio(m1);
 		
 		Musculacao m2 = new Musculacao();
 		m2.setCodigo(2);
@@ -25,9 +25,9 @@ public class MusculacaoTeste implements ApplicationRunner {
 		m2.setValorUnitario(150);
 		m2.setDieta(true);
 		m2.setAvaliacaoFisica(true);
-		new AppServico("Inclusão do Serviço " + m2.getDescricao() + "!").relatorio(m2);
+		new AppProfissional("Inclusão do Serviço " + m2.getDescricao() + "!").relatorio(m2);
 		
 		Musculacao m3 = new Musculacao(3,"Treino de Força Muscular",12,200,true,true,true);
-		new AppServico("Inclusão do Serviço " + m3.getDescricao() + "!").relatorio(m3);
+		new AppProfissional("Inclusão do Serviço " + m3.getDescricao() + "!").relatorio(m3);
 	}
 }

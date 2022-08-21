@@ -2,10 +2,10 @@ package br.edu.infnet.appprofissional.model.test;
 
 import br.edu.infnet.appprofissional.model.domain.Servico;
 
-public class AppServico {
+public class AppProfissional {
 	private String mensagem;
 	
-	public AppServico(String mensagem) {
+	public AppProfissional(String mensagem) {
 		this.mensagem = mensagem;
 	}
 	

@@ -22,7 +22,7 @@ public class SaudeTeste implements ApplicationRunner {
 		s1.setValorUnitario(300);
 		s1.setEspecialidade("Dermatologista");
 		s1.setRetornoProximoMes(true);
-		new AppServico("Inclusão do Serviço " + s1.getDescricao() + "!").relatorio(s1);
+		new AppProfissional("Inclusão do Serviço " + s1.getDescricao() + "!").relatorio(s1);
 		
 		Saude s2 = new Saude();
 		s2.setCodigo(2);
@@ -30,7 +30,7 @@ public class SaudeTeste implements ApplicationRunner {
 		s2.setQuantidade(10);
 		s2.setValorUnitario(150);
 		s2.setEspecialidade("Fisioterapia");
-		new AppServico("Inclusão do Serviço " + s2.getDescricao() + "!").relatorio(s2);
+		new AppProfissional("Inclusão do Serviço " + s2.getDescricao() + "!").relatorio(s2);
 		
 		Saude s3 = new Saude();
 		s3.setCodigo(3);
@@ -41,6 +41,6 @@ public class SaudeTeste implements ApplicationRunner {
 		s3.setIdadeMinima(0);
 		s3.setIdadeMaxima(20);
 		s3.setRetornoProximoMes(true);
-		new AppServico("Inclusão do Serviço " + s3.getDescricao() + "!").relatorio(s3);
+		new AppProfissional("Inclusão do Serviço " + s3.getDescricao() + "!").relatorio(s3);
 	}
 }

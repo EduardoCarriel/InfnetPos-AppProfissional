@@ -22,7 +22,7 @@ public class EsteticaTeste implements ApplicationRunner {
 		e1.setValorUnitario(70);
 		e1.setDiasRetorno(20);
 		e1.setFacial(true);
-		new AppServico("Inclusão do Serviço " + e1.getDescricao() + "!").relatorio(e1);
+		new AppProfissional("Inclusão do Serviço " + e1.getDescricao() + "!").relatorio(e1);
 		
 		Estetica e2 = new Estetica();
 		e2.setCodigo(8);
@@ -30,7 +30,7 @@ public class EsteticaTeste implements ApplicationRunner {
 		e2.setQuantidade(1);
 		e2.setValorUnitario(220);
 		e2.setCorporal(true);
-		new AppServico("Inclusão do Serviço " + e2.getDescricao() + "!").relatorio(e2);
+		new AppProfissional("Inclusão do Serviço " + e2.getDescricao() + "!").relatorio(e2);
 		
 		Estetica e3 = new Estetica();
 		e3.setCodigo(17);
@@ -38,6 +38,6 @@ public class EsteticaTeste implements ApplicationRunner {
 		e3.setQuantidade(1);
 		e3.setValorUnitario(550);
 		e3.setCapilar(true);
-		new AppServico("Inclusão do Serviço " + e3.getDescricao() + "!").relatorio(e3);
+		new AppProfissional("Inclusão do Serviço " + e3.getDescricao() + "!").relatorio(e3);
 	}
 }

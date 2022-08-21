@@ -1,4 +1,4 @@
-package br.edu.infnet.appservico.controller;
+package br.edu.infnet.appprofissional.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

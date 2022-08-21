@@ -1,6 +1,6 @@
-package br.edu.infnet.appservico.model.test;
+package br.edu.infnet.appprofissional.model.test;
 
-import br.edu.infnet.appservico.model.domain.Servico;
+import br.edu.infnet.appprofissional.model.domain.Servico;
 
 public class AppServico {
 	private String mensagem;

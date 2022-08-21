@@ -1,4 +1,4 @@
-package br.edu.infnet.appservico.model.domain;
+package br.edu.infnet.appprofissional.model.domain;
 
 public class Endereco {
 	private int cep;

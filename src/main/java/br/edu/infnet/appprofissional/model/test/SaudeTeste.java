@@ -1,11 +1,11 @@
-package br.edu.infnet.appservico.model.test;
+package br.edu.infnet.appprofissional.model.test;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appservico.model.domain.Saude;
+import br.edu.infnet.appprofissional.model.domain.Saude;
 
 @Component
 @Order(5)

@@ -10,9 +10,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.edu.infnet</groupId>
-	<artifactId>appservico</artifactId>
+	<artifactId>appprofissional</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>appservico</name>
+	<name>appprofissional</name>
 	<description>Projeto de cadastro de serviços</description>
 	<properties>
 		<java.version>11</java.version>

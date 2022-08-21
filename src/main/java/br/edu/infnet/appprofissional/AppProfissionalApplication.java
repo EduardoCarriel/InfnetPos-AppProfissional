@@ -1,13 +1,13 @@
-package br.edu.infnet.appservico;
+package br.edu.infnet.appprofissional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppservicoApplication {
+public class AppProfissionalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppservicoApplication.class, args);
+		SpringApplication.run(AppProfissionalApplication.class, args);
 	}
 
 }

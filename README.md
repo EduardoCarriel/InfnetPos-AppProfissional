@@ -1,4 +1,4 @@
-# Projeto AppServico - Cadastramento de serviços
+# Projeto AppProfissional - Cadastro de serviços
 
 Disciplina: Tecnologia Java e Orientação a Objetos
 

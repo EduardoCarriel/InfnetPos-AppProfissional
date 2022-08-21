@@ -10,59 +10,41 @@ public class Estetica extends Servico {
 		this.tipoCobranca = EnumTipoCobranca.QUANTIDADE;
 	}
 	
-	
-	
 	public int getDiasRetorno() {
 		return diasRetorno;
 	}
-
-
 
 	public void setDiasRetorno(int diasRetorno) {
 		this.diasRetorno = diasRetorno;
 	}
 
-
-
 	public boolean isFacial() {
 		return facial;
 	}
-
-
 
 	public void setFacial(boolean facial) {
 		this.facial = facial;
 	}
 
-
-
 	public boolean isCorporal() {
 		return corporal;
 	}
-
-
 
 	public void setCorporal(boolean corporal) {
 		this.corporal = corporal;
 	}
 
-
-
 	public boolean isCapilar() {
 		return capilar;
 	}
-
-
 
 	public void setCapilar(boolean capilar) {
 		this.capilar = capilar;
 	}
 
-
-
 	@Override
 	public float calcularServico() {
-		return super.calcularServico();
+		return this.getQuantidade() * this.getValorUnitario();
 	}
 	
 	@Override

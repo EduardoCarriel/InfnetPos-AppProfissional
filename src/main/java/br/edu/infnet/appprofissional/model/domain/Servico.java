@@ -1,6 +1,8 @@
 package br.edu.infnet.appprofissional.model.domain;
 
-public abstract class Servico {
+import br.edu.infnet.appprofissional.interfaces.IPrinter;
+
+public abstract class Servico implements IPrinter {
 	public enum EnumTipoCobranca {
 		QUANTIDADE("Quantidade"),
 		HORA("Hora"),
@@ -61,12 +63,8 @@ public abstract class Servico {
 	public void setValorUnitario(float valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
-
-	public abstract void impressao();
 	
-	public float calcularServico() {
-		return quantidade * valorUnitario;
-	}
+	abstract float calcularServico();
 	
 	@Override
 	public String toString() {

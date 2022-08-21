@@ -53,7 +53,7 @@ public class Musculacao extends Servico {
 			descontoPorcentagem = 0.4f;
 		}
 		
-		return super.calcularServico() - (this.getValorUnitario() * descontoPorcentagem);
+		return (this.getQuantidade() * this.getValorUnitario()) - (this.getValorUnitario() * descontoPorcentagem);
 	}
 	
 	@Override

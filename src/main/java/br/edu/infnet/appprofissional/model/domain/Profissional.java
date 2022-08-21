@@ -1,14 +1,11 @@
 package br.edu.infnet.appprofissional.model.domain;
 
-public class Profissional {
+import br.edu.infnet.appprofissional.interfaces.IPrinter;
+
+public class Profissional implements IPrinter {
 	private String nome;
 	private String telefoneCelular;
 	private String email;
-	
-	@Override
-	public String toString() {
-		return nome + ";" + telefoneCelular + ";" + email;
-	}
 
 	public String getNome() {
 		return nome;
@@ -34,5 +31,14 @@ public class Profissional {
 		this.email = email;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return nome + ";" + telefoneCelular + ";" + email;
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("# Profissional #");
+		System.out.println(this);
+	}
 }

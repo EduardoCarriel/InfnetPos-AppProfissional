@@ -7,7 +7,7 @@ public class Saude extends Servico {
 	private boolean retornoProximoMes;
 	
 	public Saude() {
-		this.tipoCobranca = EnumTipoCobranca.QUANTIDADE;
+		this.setTipoCobranca(EnumTipoCobranca.QUANTIDADE);
 	}
 	
 	public String getEspecialidade() {
@@ -54,7 +54,7 @@ public class Saude extends Servico {
 	}
 
 	@Override
-	public float calcularServico() {
-		return this.getQuantidade() * this.getValorUnitario();
+	public float calcularServico(Integer quantidadeContratada) {
+		return (quantidadeContratada * (this.getValor() - (this.getValor() * 0.1f)));
 	}
 }

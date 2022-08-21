@@ -48,7 +48,6 @@
 	        <th>Código</th>
 	        <th>Descrição</th>
 	        <th>Tipo de Cobrança</th>
-	        <th>Quantidade</th>
 	        <th>Valor Unitário</th>
 	        <th>Especialidade</th>
 	        <th>Idade Mínima</th>
@@ -64,8 +63,7 @@
 		        <td>${i.codigo}</td>
 		        <td>${i.descricao}</td>
 		        <td>${i.tipoCobranca}</td>
-		        <td>${i.quantidade}</td>
-		        <td>${i.valorUnitario}</td>
+		        <td>${i.valor}</td>
 		        <td>${i.especialidade}</td>
 		        <td>${i.idadeMinima}</td>
 		        <td>${i.idadeMaxima}</td>

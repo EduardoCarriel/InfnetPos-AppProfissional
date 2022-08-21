@@ -48,8 +48,7 @@
 	        <th>Código</th>
 	        <th>Descrição</th>
 	        <th>Tipo de Cobrança</th>
-	        <th>Quantidade</th>
-	        <th>Valor Unitário</th>
+	        <th>Valor</th>
 	        <th>Personal Trainer</th>
 	        <th>Dieta</th>
 	        <th>Avaliação Física</th>
@@ -63,8 +62,7 @@
 		        <td>${i.codigo}</td>
 		        <td>${i.descricao}</td>
 		        <td>${i.tipoCobranca}</td>
-		        <td>${i.quantidade}</td>
-		        <td>${i.valorUnitario}</td>
+		        <td>${i.valor}</td>
 		        <td>${i.personalTrainer}</td>
 		        <td>${i.dieta}</td>
 		        <td>${i.avaliacaoFisica}</td>

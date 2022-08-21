@@ -32,8 +32,7 @@ public abstract class Servico implements IPrinter {
 	private int codigo;
 	private String descricao;
 	protected EnumTipoCobranca tipoCobranca;
-	private float quantidade;
-	private float valorUnitario;
+	private float valor;
 	
 	public int getId() {
 		return id;
@@ -63,27 +62,23 @@ public abstract class Servico implements IPrinter {
 		return tipoCobranca;
 	}
 
-	public float getQuantidade() {
-		return quantidade;
+	public void setTipoCobranca(EnumTipoCobranca tipoCobranca) {
+		this.tipoCobranca = tipoCobranca;
 	}
 
-	public void setQuantidade(float quantidade) {
-		this.quantidade = quantidade;
+	public float getValor() {
+		return valor;
 	}
 
-	public float getValorUnitario() {
-		return valorUnitario;
-	}
-
-	public void setValorUnitario(float valorUnitario) {
-		this.valorUnitario = valorUnitario;
+	public void setValor(float valor) {
+		this.valor = valor;
 	}
 	
-	abstract float calcularServico();
+	abstract float calcularServico(Integer quantidadeContratada);
 	
 	@Override
 	public String toString() {
-		return id + ";" + codigo + ";" + descricao + ";" + tipoCobranca + ";" + valorUnitario + ";" + calcularServico();
+		return id + ";" + codigo + ";" + descricao + ";" + tipoCobranca + ";" + valor;
 	}
 
 	@Override
@@ -96,8 +91,6 @@ public abstract class Servico implements IPrinter {
 		if (this == obj)
 			return true;
 		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
 			return false;
 		Servico other = (Servico) obj;
 		return codigo == other.codigo;

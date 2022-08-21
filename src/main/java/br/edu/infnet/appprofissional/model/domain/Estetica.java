@@ -43,8 +43,8 @@ public class Estetica extends Servico {
 	}
 
 	@Override
-	public float calcularServico() {
-		return this.getQuantidade() * this.getValorUnitario();
+	public float calcularServico(Integer quantidadeContratada) {
+		return quantidadeContratada * this.getValor();
 	}
 	
 	@Override

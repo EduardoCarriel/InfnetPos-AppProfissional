@@ -9,12 +9,11 @@ public class Musculacao extends Servico {
 		this.tipoCobranca = EnumTipoCobranca.MES;
 	}
 	
-	public Musculacao(int codigo, String descricao, float quantidade, float valorUnitario, boolean personalTrainer, boolean dieta, boolean avaliacaoFisica) {
+	public Musculacao(int codigo, String descricao, float valor, boolean personalTrainer, boolean dieta, boolean avaliacaoFisica) {
 		this.tipoCobranca = EnumTipoCobranca.MES;
 		this.setCodigo(codigo);
 		this.setDescricao(descricao);
-		this.setQuantidade(quantidade);
-		this.setValorUnitario(valorUnitario);
+		this.setValor(valor);
 		this.personalTrainer = personalTrainer;
 		this.dieta = dieta;
 		this.avaliacaoFisica = avaliacaoFisica;
@@ -45,18 +44,14 @@ public class Musculacao extends Servico {
 	}
 
 	@Override
-	public float calcularServico() {
+	public float calcularServico(Integer quantidadeContratada) {
 		float descontoPorcentagem = 0;
 		
-		if ( this.tipoCobranca == Servico.EnumTipoCobranca.MES && this.getQuantidade() >= 6 && this.getQuantidade() <= 12) {
-			descontoPorcentagem = 0.2f;
+		if (this.tipoCobranca == Servico.EnumTipoCobranca.MES && quantidadeContratada >= 12) {
+			descontoPorcentagem = 0.3f;
 		}
 		
-		if ( this.tipoCobranca == Servico.EnumTipoCobranca.MES && this.getQuantidade() >= 12) {
-			descontoPorcentagem = 0.4f;
-		}
-		
-		return (this.getQuantidade() * this.getValorUnitario()) - (this.getValorUnitario() * descontoPorcentagem);
+		return this.getValor() - (this.getValor() * descontoPorcentagem);
 	}
 	
 	@Override

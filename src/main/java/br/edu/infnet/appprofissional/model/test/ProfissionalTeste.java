@@ -26,9 +26,9 @@ public class ProfissionalTeste implements ApplicationRunner {
 		
 		//############################### Profissional 1 ###############################
 		
-		Musculacao m1 = new Musculacao(1,"Treino para Resistência Muscular",6,100,false,true,true);
-		Musculacao m2 = new Musculacao(2,"Treino para Hipertrofia Muscular",4,150,true,false,true);
-		Musculacao m3 = new Musculacao(3,"Treino de Força Muscular",12,200,true,true,true);
+		Musculacao m1 = new Musculacao(1,"Treino para Resistência Muscular",100,false,true,true);
+		Musculacao m2 = new Musculacao(2,"Treino para Hipertrofia Muscular",150,true,false,true);
+		Musculacao m3 = new Musculacao(3,"Treino de Força Muscular",200,true,true,true);
 		
 		//List<Servico> listaServicoP1 = new ArrayList<Servico>();
 		Set<Servico> listaServicoP1 = new HashSet<Servico>();
@@ -66,16 +66,14 @@ public class ProfissionalTeste implements ApplicationRunner {
 		Saude s1 = new Saude();
 		s1.setCodigo(1);
 		s1.setDescricao("Consulta Prematuridade");
-		s1.setQuantidade(1);
-		s1.setValorUnitario(300);
+		s1.setValor(300);
 		s1.setEspecialidade("Pediatria");
 		s1.setRetornoProximoMes(true);
 		
 		Saude s2 = new Saude();
 		s2.setCodigo(2);
 		s2.setDescricao("Consulta Puericultura");
-		s2.setQuantidade(10);
-		s2.setValorUnitario(150);
+		s2.setValor(150);
 		s2.setIdadeMinima(0);
 		s2.setIdadeMaxima(1);
 		s2.setEspecialidade("Pediatria");
@@ -83,8 +81,7 @@ public class ProfissionalTeste implements ApplicationRunner {
 		Saude s3 = new Saude();
 		s3.setCodigo(3);
 		s3.setDescricao("Consulta Obesidade");
-		s3.setQuantidade(1);
-		s3.setValorUnitario(200);
+		s3.setValor(200);
 		s3.setEspecialidade("Pediatria");
 		s3.setRetornoProximoMes(true);
 		
@@ -109,23 +106,20 @@ public class ProfissionalTeste implements ApplicationRunner {
 		Estetica e1 = new Estetica();
 		e1.setCodigo(1);
 		e1.setDescricao("Limpeza de pele");
-		e1.setQuantidade(1);
-		e1.setValorUnitario(70);
+		e1.setValor(70);
 		e1.setDiasRetorno(20);
 		e1.setFacial(true);
 		
 		Estetica e2 = new Estetica();
 		e2.setCodigo(8);
 		e2.setDescricao("Massagem completa");
-		e2.setQuantidade(1);
-		e2.setValorUnitario(220);
+		e2.setValor(220);
 		e2.setCorporal(true);
 		
 		Estetica e3 = new Estetica();
 		e3.setCodigo(17);
 		e3.setDescricao("Pintura com mechas");
-		e3.setQuantidade(1);
-		e3.setValorUnitario(550);
+		e3.setValor(550);
 		e3.setCapilar(true);
 		
 		Set<Servico> listaServicoP3 = new HashSet<Servico>();

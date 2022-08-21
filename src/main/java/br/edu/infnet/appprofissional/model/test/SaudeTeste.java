@@ -5,7 +5,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.AppImpressao;
 import br.edu.infnet.appprofissional.controller.SaudeController;
 import br.edu.infnet.appprofissional.model.domain.Saude;
 
@@ -20,8 +19,7 @@ public class SaudeTeste implements ApplicationRunner {
 		Saude s1 = new Saude();
 		s1.setCodigo(1);
 		s1.setDescricao("Consulta para tratamento de cravos e espinhas");
-		s1.setQuantidade(1);
-		s1.setValorUnitario(300);
+		s1.setValor(300);
 		s1.setEspecialidade("Dermatologista");
 		s1.setRetornoProximoMes(true);
 		SaudeController.incluir(s1);
@@ -29,16 +27,14 @@ public class SaudeTeste implements ApplicationRunner {
 		Saude s2 = new Saude();
 		s2.setCodigo(2);
 		s2.setDescricao("Reabilitação após cirurgia de ombro");
-		s2.setQuantidade(10);
-		s2.setValorUnitario(150);
+		s2.setValor(150);
 		s2.setEspecialidade("Fisioterapia");
 		SaudeController.incluir(s2);
 		
 		Saude s3 = new Saude();
 		s3.setCodigo(3);
 		s3.setDescricao("Acompanhamento Pediatra");
-		s3.setQuantidade(1);
-		s3.setValorUnitario(200);
+		s3.setValor(200);
 		s3.setEspecialidade("Pediatria");
 		s3.setIdadeMinima(0);
 		s3.setIdadeMaxima(20);

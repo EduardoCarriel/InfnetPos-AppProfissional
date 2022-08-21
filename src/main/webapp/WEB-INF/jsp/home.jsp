@@ -50,6 +50,21 @@
 	    </thead>
 	    <tbody>
 	      <tr>
+	        <td>id</td>
+	        <td>int</td>
+	        <td>Identificador único.</td>
+	      </tr>
+	      <tr>
+	        <td>codigo</td>
+	        <td>int</td>
+	        <td>Código do profissional.</td>
+	      </tr>
+	      <tr>
+	        <td>dataCadastro</td>
+	        <td>LocalDateTime</td>
+	        <td>Data e hora do cadastro do profissional.</td>
+	      </tr>
+	      <tr>
 	        <td>nome</td>
 	        <td>String</td>
 	        <td>Nome do profissional.</td>
@@ -77,6 +92,11 @@
 	      </tr>
 	    </thead>
 	    <tbody>
+	      <tr>
+	        <td>id</td>
+	        <td>int</td>
+	        <td>Identificador único.</td>
+	      </tr>
 	      <tr>
 	        <td>cep</td>
 	        <td>int</td>
@@ -120,6 +140,11 @@
 	      </tr>
 	    </thead>
 	    <tbody>
+    	  <tr>
+	        <td>id</td>
+	        <td>int</td>
+	        <td>Identificador único.</td>
+	      </tr>
 	      <tr>
 	        <td>codigo</td>
 	        <td>int</td>
@@ -154,6 +179,11 @@
 	    </thead>
 	    <tbody>
 	      <tr>
+	        <td>id</td>
+	        <td>int</td>
+	        <td>Identificador único.</td>
+	      </tr>
+	      <tr>
 	        <td>diasRetorno</td>
 	        <td>int</td>
 	        <td>Número do dias de retorno após a realização do serviço.</td>
@@ -187,6 +217,11 @@
 	    </thead>
 	    <tbody>
 	      <tr>
+	        <td>id</td>
+	        <td>int</td>
+	        <td>Identificador único.</td>
+	      </tr>
+	      <tr>
 	        <td>especialidade</td>
 	        <td>String</td>
 	        <td>Nome da especialidade do serviço prestado.</td>
@@ -219,6 +254,11 @@
 	      </tr>
 	    </thead>
 	    <tbody>
+	      <tr>
+	        <td>id</td>
+	        <td>int</td>
+	        <td>Identificador único.</td>
+	      </tr>
 	      <tr>
 	        <td>personalTrainer</td>
 	        <td>boolean</td>

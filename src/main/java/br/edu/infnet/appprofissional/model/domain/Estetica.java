@@ -1,5 +1,7 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
+
 public class Estetica extends Servico {
 	private int diasRetorno;
 	private boolean facial;
@@ -43,8 +45,20 @@ public class Estetica extends Servico {
 	}
 
 	@Override
-	public float calcularServico(Integer quantidadeContratada) {
-		return quantidadeContratada * this.getValor();
+	public float calcularServico(Integer quantidadeContratada) throws DiasRetornoInvalidoException {
+		float taxaRetorno = 0;
+		
+		if (capilar && diasRetorno > 0) {
+			throw new DiasRetornoInvalidoException("Não é possível informar dias de retorno para serviços de tratamento capilar.");
+		}
+		
+		if ((facial || corporal) && diasRetorno > 0) {
+			taxaRetorno = 0.05f;
+		}
+		
+		float valorTaxaRetorno = this.getValor() * taxaRetorno;
+		
+		return quantidadeContratada * this.getValor() + valorTaxaRetorno;
 	}
 	
 	@Override

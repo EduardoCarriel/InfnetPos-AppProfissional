@@ -1,5 +1,7 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import br.edu.infnet.appprofissional.exception.CepInvalidoException;
+import br.edu.infnet.appprofissional.exception.LogradouroInvalidoException;
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
 public class Endereco implements IPrinter {
@@ -13,7 +15,15 @@ public class Endereco implements IPrinter {
 	
 	public Endereco() {}
 	
-	public Endereco(int cep, String logradouro, int numero, String bairro, String cidade, String estado) {
+	public Endereco(int cep, String logradouro, int numero, String bairro, String cidade, String estado) throws CepInvalidoException, LogradouroInvalidoException {
+		if (cep == 0) {
+			throw new CepInvalidoException("É obrigatório informar o CEP.");
+		}
+		
+		if (logradouro.length() == 0) {
+			throw new LogradouroInvalidoException("É obrigatório informar o Logradouro.");
+		}
+		
 		this.cep = cep;
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -34,48 +44,24 @@ public class Endereco implements IPrinter {
 		return cep;
 	}
 
-	public void setCep(int cep) {
-		this.cep = cep;
-	}
-
 	public String getLogradouro() {
 		return logradouro;
-	}
-
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
 	}
 
 	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
 	public String getBairro() {
 		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
 	}
 
 	public String getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
 	public String getEstado() {
 		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 
 	@Override

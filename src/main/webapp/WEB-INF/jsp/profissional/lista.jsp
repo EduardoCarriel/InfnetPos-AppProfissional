@@ -50,6 +50,8 @@
 	        <th>Nome</th>
 	        <th>Celular</th>
 	        <th>Email</th>
+	        <th>Endereço</th>
+	        <th>Serviços</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -62,6 +64,8 @@
 		        <td>${i.nome}</td>
 		        <td>${i.telefoneCelular}</td>
 		        <td>${i.email}</td>
+		        <td>${i.endereco.cep} | ${i.endereco.logradouro} | ${i.endereco.numero} | ${i.endereco.bairro} | ${i.endereco.cidade} | ${i.endereco.estado}</td>
+		        <td>${i.servicos.size()}</td>
 		        <td><a href="/profissional/${i.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>

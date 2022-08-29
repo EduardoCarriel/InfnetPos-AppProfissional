@@ -13,16 +13,29 @@ import br.edu.infnet.appprofissional.model.domain.Endereco;
 public class EnderecoTeste implements ApplicationRunner {
 
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args) {
 		System.out.println("## Endereço ##");
 		
-		Endereco e1 = new Endereco(80330777, "Rua Teste01", 650, "Santa Quitéria", "Curitiba", "Paraná");
-		EnderecoController.incluir(e1);
-
-		Endereco e2 = new Endereco(80330888, "Rua Teste02", 480, "Campo Comprido", "Curitiba", "Paraná");
-		EnderecoController.incluir(e2);
-
-		Endereco e3 = new Endereco(80330999, "Rua Teste03", 123, "Mercês", "Curitiba", "Paraná");
-		EnderecoController.incluir(e3);
+		
+		try {
+			Endereco e1 = new Endereco(80330777, "Rua Teste01", 650, "Santa Quitéria", "Curitiba", "Paraná");
+			EnderecoController.incluir(e1);			
+		} catch (Exception e) {
+			System.out.println("Ocorreu um problema: " + e.getMessage());
+		}
+		
+		try {			
+			Endereco e2 = new Endereco(80330888, "Rua Teste02", 480, "Campo Comprido", "Curitiba", "Paraná");
+			EnderecoController.incluir(e2);
+		} catch (Exception e) {
+			System.out.println("Ocorreu um problema: " + e.getMessage());
+		}
+		
+		try {
+			Endereco e3 = new Endereco(80330999, "Rua Teste03", 123, "Mercês", "Curitiba", "Paraná");
+			EnderecoController.incluir(e3);
+		} catch (Exception e) {
+			System.out.println("Ocorreu um problema: " + e.getMessage());
+		}
 	}
 }

@@ -2,6 +2,8 @@ package br.edu.infnet.appprofissional.model.domain;
 
 import java.util.Objects;
 
+import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
+import br.edu.infnet.appprofissional.exception.QuantidadeInvalidaException;
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
 public abstract class Servico implements IPrinter {
@@ -74,7 +76,7 @@ public abstract class Servico implements IPrinter {
 		this.valor = valor;
 	}
 	
-	abstract float calcularServico(Integer quantidadeContratada);
+	abstract float calcularServico(Integer quantidadeContratada) throws DiasRetornoInvalidoException, QuantidadeInvalidaException;
 	
 	@Override
 	public String toString() {

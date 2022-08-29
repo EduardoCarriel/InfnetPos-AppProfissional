@@ -1,5 +1,7 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import br.edu.infnet.appprofissional.exception.QuantidadeInvalidaException;
+
 public class Saude extends Servico {
 	private String especialidade;
 	private int idadeMinima;
@@ -54,7 +56,17 @@ public class Saude extends Servico {
 	}
 
 	@Override
-	public float calcularServico(Integer quantidadeContratada) {
-		return (quantidadeContratada * (this.getValor() - (this.getValor() * 0.1f)));
+	public float calcularServico(Integer quantidadeContratada) throws QuantidadeInvalidaException {
+		float valorDesconto = 0;
+		
+		if (quantidadeContratada > 4) {
+			throw new QuantidadeInvalidaException("Não é permitido informar a quantidade maior do que 4.");
+		}
+		
+		if (idadeMaxima <= 50 && !retornoProximoMes) {
+			valorDesconto = this.getValor() * 0.1f;
+		}
+		
+		return quantidadeContratada * (this.getValor() - valorDesconto);
 	}
 }

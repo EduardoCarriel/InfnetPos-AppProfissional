@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
+import br.edu.infnet.appprofissional.exception.EnderecoInvalidoException;
+import br.edu.infnet.appprofissional.exception.ProfissionalInvalidoException;
+import br.edu.infnet.appprofissional.exception.ServicoInvalidoException;
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
 public class Profissional implements IPrinter {
@@ -14,12 +17,30 @@ public class Profissional implements IPrinter {
 	private String telefoneCelular;
 	private String email;
 	private Endereco endereco;
-	//private List<Servico> servicos;
 	private Set<Servico> servicos;
 	
-	public Profissional(Endereco endereco) {
+	public Profissional(Integer codigo, String nome, Endereco endereco, Set<Servico> servicos) throws EnderecoInvalidoException, ServicoInvalidoException, ProfissionalInvalidoException {
+		if (codigo == null || codigo == 0) {
+			throw new ProfissionalInvalidoException("Código do profissional é inválido.");
+		}
+		
+		if (nome == null || nome.isEmpty()) {
+			throw new ProfissionalInvalidoException("Não é possível inserir um novo profissional sem o nome.");
+		}
+		
+		if (endereco == null) {
+			throw new EnderecoInvalidoException("Não é possível inserir um novo profissional sem o endereço.");
+		}
+		
+		if (servicos == null || servicos.size() < 1) {
+			throw new ServicoInvalidoException("Não é possível inserir um novo profissional sem informar o serviço.");
+		}
+		
+		this.codigo = codigo;
+		this.nome = nome;
 		this.dataCadastro = LocalDateTime.now();
 		this.endereco = endereco;
+		this.servicos = servicos;
 	}
 
 	public int getId() {
@@ -70,12 +91,12 @@ public class Profissional implements IPrinter {
 		this.email = email;
 	}
 	
-	public Set<Servico> getServicos() {
-		return servicos;
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
-	public void setServicos(Set<Servico> servicos) {
-		this.servicos = servicos;
+	public Set<Servico> getServicos() {
+		return servicos;
 	}
 
 	@Override

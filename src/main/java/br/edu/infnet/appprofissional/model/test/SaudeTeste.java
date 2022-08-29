@@ -1,11 +1,18 @@
 package br.edu.infnet.appprofissional.model.test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appprofissional.controller.EsteticaController;
 import br.edu.infnet.appprofissional.controller.SaudeController;
+import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
+import br.edu.infnet.appprofissional.model.domain.Estetica;
 import br.edu.infnet.appprofissional.model.domain.Saude;
 
 @Component
@@ -14,31 +21,44 @@ public class SaudeTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		String dir = "C:/dev/";
+		String arq = "saude.txt";
+		
 		System.out.println("## Saúde ##");
-		
-		Saude s1 = new Saude();
-		s1.setCodigo(1);
-		s1.setDescricao("Consulta para tratamento de cravos e espinhas");
-		s1.setValor(300);
-		s1.setEspecialidade("Dermatologista");
-		s1.setRetornoProximoMes(true);
-		SaudeController.incluir(s1);
-		
-		Saude s2 = new Saude();
-		s2.setCodigo(2);
-		s2.setDescricao("Reabilitação após cirurgia de ombro");
-		s2.setValor(150);
-		s2.setEspecialidade("Fisioterapia");
-		SaudeController.incluir(s2);
-		
-		Saude s3 = new Saude();
-		s3.setCodigo(3);
-		s3.setDescricao("Acompanhamento Pediatra");
-		s3.setValor(200);
-		s3.setEspecialidade("Pediatria");
-		s3.setIdadeMinima(0);
-		s3.setIdadeMaxima(20);
-		s3.setRetornoProximoMes(true);
-		SaudeController.incluir(s3);
+		try {
+			try {
+				FileReader fileReader = new FileReader(dir+arq);
+				BufferedReader leitura = new BufferedReader(fileReader);
+				
+				String linha = leitura.readLine();
+				while (linha != null) {
+					
+					String[] campos = linha.split(";");
+					
+					try {
+						Saude s1 = new Saude();
+						s1.setCodigo(Integer.valueOf(campos[0]));
+						s1.setDescricao(campos[1]);
+						s1.setValor(Float.valueOf(campos[2]));
+						s1.setEspecialidade(campos[3]);
+						s1.setIdadeMinima(Integer.valueOf(campos[4]));
+						s1.setIdadeMaxima(Integer.valueOf(campos[5]));
+						s1.setRetornoProximoMes(Boolean.valueOf(campos[6]));
+						SaudeController.incluir(s1);		
+					} catch (Exception e) {
+						System.out.println("Ocorreu um problema: " + e.getMessage());
+					}
+					
+					linha = leitura.readLine();
+				}
+				
+				leitura.close();
+				fileReader.close();
+			} catch (IOException e) {
+				System.out.println("Ocoreu um erro na leitura do arquivo: " + e.getMessage());
+			}
+		} finally {
+			System.out.println("Leitura do arquivo finalizada.");
+		}
 	}
 }

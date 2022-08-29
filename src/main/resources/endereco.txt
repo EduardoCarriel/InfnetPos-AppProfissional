@@ -1,0 +1,3 @@
+80330777;Rua Teste01;650;Santa Quitéria;Curitiba;Paraná
+80330888;Rua Teste02;480;Campo Comprido;Curitiba;Paraná
+80330999;Rua Teste03;123;Mercês;Curitiba;Paraná

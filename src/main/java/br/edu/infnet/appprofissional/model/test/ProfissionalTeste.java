@@ -18,10 +18,8 @@ import br.edu.infnet.appprofissional.exception.LogradouroInvalidoException;
 import br.edu.infnet.appprofissional.exception.ProfissionalInvalidoException;
 import br.edu.infnet.appprofissional.exception.ServicoInvalidoException;
 import br.edu.infnet.appprofissional.model.domain.Endereco;
-import br.edu.infnet.appprofissional.model.domain.Estetica;
 import br.edu.infnet.appprofissional.model.domain.Musculacao;
 import br.edu.infnet.appprofissional.model.domain.Profissional;
-import br.edu.infnet.appprofissional.model.domain.Saude;
 import br.edu.infnet.appprofissional.model.domain.Servico;
 
 @Component

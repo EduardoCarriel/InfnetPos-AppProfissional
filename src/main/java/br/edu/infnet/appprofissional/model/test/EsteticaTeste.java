@@ -1,12 +1,18 @@
 package br.edu.infnet.appprofissional.model.test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appprofissional.controller.EnderecoController;
 import br.edu.infnet.appprofissional.controller.EsteticaController;
 import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
+import br.edu.infnet.appprofissional.model.domain.Endereco;
 import br.edu.infnet.appprofissional.model.domain.Estetica;
 
 @Component
@@ -15,55 +21,45 @@ public class EsteticaTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) {
+		String dir = "C:/dev/";
+		String arq = "estetica.txt";
+		
 		System.out.println("## Estética ##");
-		
 		try {
-			Estetica e1 = new Estetica();
-			e1.setCodigo(1);
-			e1.setDescricao("Limpeza de pele");
-			e1.setValor(70);
-			e1.setDiasRetorno(20);
-			e1.setFacial(true);
-			System.out.println("Cálculo do serviço:" + e1.calcularServico(1));
-			EsteticaController.incluir(e1);			
-		} catch (DiasRetornoInvalidoException e) {
-			System.out.println("Ocorreu um problema: " + e.getMessage());
-		}
-		
-		try {
-			Estetica e2 = new Estetica();
-			e2.setCodigo(8);
-			e2.setDescricao("Massagem completa");
-			e2.setValor(220);
-			e2.setCorporal(true);
-			System.out.println("Cálculo do serviço:" + e2.calcularServico(1));
-			EsteticaController.incluir(e2);
-		} catch (DiasRetornoInvalidoException e) {
-			System.out.println("Ocorreu um problema: " + e.getMessage());
-		}
-		
-		try {
-			Estetica e3 = new Estetica();
-			e3.setCodigo(17);
-			e3.setDescricao("Corte e pintura com mechas");
-			e3.setValor(550);
-			e3.setCapilar(true);
-			System.out.println("Cálculo do serviço:" + e3.calcularServico(1));
-			EsteticaController.incluir(e3);
-		} catch (DiasRetornoInvalidoException e) {
-			System.out.println("Ocorreu um problema: " + e.getMessage());
-		}
-		
-		try {
-			Estetica e3 = new Estetica();
-			e3.setCodigo(20);
-			e3.setDescricao("Alisamento");
-			e3.setValor(300);
-			e3.setCapilar(true);
-			System.out.println("Cálculo do serviço:" + e3.calcularServico(2));
-			EsteticaController.incluir(e3);
-		} catch (DiasRetornoInvalidoException e) {
-			System.out.println("Ocorreu um problema: " + e.getMessage());
+			try {
+				FileReader fileReader = new FileReader(dir+arq);
+				BufferedReader leitura = new BufferedReader(fileReader);
+				
+				String linha = leitura.readLine();
+				while (linha != null) {
+					
+					String[] campos = linha.split(";");
+					
+					try {
+						Estetica e1 = new Estetica();
+						e1.setCodigo(Integer.valueOf(campos[0]));
+						e1.setDescricao(campos[1]);
+						e1.setValor(Float.valueOf(campos[2]));
+						e1.setDiasRetorno(Integer.valueOf(campos[3]));
+						e1.setFacial(Boolean.valueOf(campos[4]));
+						e1.setCorporal(Boolean.valueOf(campos[5]));
+						e1.setCapilar(Boolean.valueOf(campos[6]));
+						System.out.println("Cálculo do serviço:" + e1.calcularServico(1));
+						EsteticaController.incluir(e1);			
+					} catch (DiasRetornoInvalidoException e) {
+						System.out.println("Ocorreu um problema: " + e.getMessage());
+					}
+					
+					linha = leitura.readLine();
+				}
+				
+				leitura.close();
+				fileReader.close();
+			} catch (IOException e) {
+				System.out.println("Ocoreu um erro na leitura do arquivo: " + e.getMessage());
+			}
+		} finally {
+			System.out.println("Leitura do arquivo finalizada.");
 		}
 	}
 }

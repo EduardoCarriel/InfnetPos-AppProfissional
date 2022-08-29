@@ -1,0 +1,3 @@
+1;Consulta para tratamento de cravos e espinhas;300;Dermatologista;0;999;true
+2;Reabilitação após cirurgia de ombro;150;Fisioterapia;0;999;false
+3;Acompanhamento Pediatra;200;Pediatria;0;20;true

@@ -1,0 +1,4 @@
+1;Limpeza de pele;70;20;true;false;false
+8;Massagem completa;220;0;false;true;false
+17;Corte e pintura com mechas;550;0;false;false;true
+20;Alisamento;300;0;false;false;true

@@ -11,30 +11,7 @@
 	<title>AppProfissional</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-success navbar-dark">
-	  <div class="container-fluid">
-	    <ul class="navbar-nav">
-	      <li class="nav-item">
-	        <a class="nav-link active" href="/">AppProfissional</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/musculacao/lista">Musculação</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/saude/lista">Saude</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/estetica/lista">Estética</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/profissional/lista">Profissional</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/endereco/lista">Endereço</a>
-	      </li>
-	    </ul>
-	  </div>
-	</nav>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
 	  <h2>AppProfissional</h2>

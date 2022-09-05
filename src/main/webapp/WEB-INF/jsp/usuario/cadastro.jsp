@@ -15,37 +15,25 @@
 
 	<div class="container mt-3">
 	  <h2>AppProfissional</h2>
-	  <p>Projeto de cadastro de serviços</p>
 	  
-	  <h3>Classe: Endereco</h3>	
-	  <table class="table table-bordered">
-	    <thead>
-	      <tr>
-	      	<th>ID</th>
-	        <th>Cep</th>
-	        <th>Logradouro</th>
-	        <th>Número</th>
-	        <th>Bairro</th>
-	        <th>Cidade</th>
-	        <th>Estado</th>
-	        <th></th>
-	      </tr>
-	    </thead>
-	    <tbody>
-		    <c:forEach var="i" items="${listagem}">
-		      <tr>
-		      	<td>${i.id}</td>
-		        <td>${i.cep}</td>
-		        <td>${i.logradouro}</td>
-		        <td>${i.numero}</td>
-		        <td>${i.bairro}</td>
-		        <td>${i.cidade}</td>
-		        <td>${i.estado}</td>
-		        <td><a href="/endereco/${i.id}/excluir">excluir</a></td>
-		      </tr>
-		      </c:forEach>
-	    </tbody>
-	  </table>
+	  <form action="/usuario/incluir" method="POST">
+	  	<div class="mb-3 mt-3">
+	  		<label>Nome:</label>
+	  		<input type="text" class="form-control" placeholder="Entre com o seu nome" name="nome">
+	  	</div>
+	  
+	  	<div class="mb-3 mt-3">
+	  		<label>E-mail:</label>
+	  		<input type="email" class="form-control" placeholder="Entre com o seu e-mail" name="email">
+	  	</div>
+	  	
+	  	<div class="mb-3 mt-3">
+	  		<label>Senha:</label>
+	  		<input type="password" class="form-control" placeholder="Entre com a sua senha" name="senha">
+	  	</div>
+	  	
+	  	<button type="submit" class="btn btn-primary">Cadastrar</button>
+	  </form>
 	</div>	
 </body>
 </html>

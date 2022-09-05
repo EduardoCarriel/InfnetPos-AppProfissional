@@ -17,35 +17,22 @@
 	  <h2>AppProfissional</h2>
 	  <p>Projeto de cadastro de serviços</p>
 	  
-	  <h3>Classe: Saude</h3>	
+	  <h3>Cadastro de usuários</h3>	
 	  <table class="table table-bordered">
 	    <thead>
 	      <tr>
-	      	<th>ID</th>
-	        <th>Código</th>
-	        <th>Descrição</th>
-	        <th>Tipo de Cobrança</th>
-	        <th>Valor Unitário</th>
-	        <th>Especialidade</th>
-	        <th>Idade Mínima</th>
-	        <th>Idade Máxima</th>
-	        <th>Retorno próximo mês</th>
-	        <th></th>
+	      	<th>Nome</th>
+	        <th>E-mail</th>
+	        <th>Senha</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-		    <c:forEach var="i" items="${listagem}">
+		    <c:forEach var="u" items="${listagem}">
 		      <tr>
-		      	<td>${i.id}</td>
-		        <td>${i.codigo}</td>
-		        <td>${i.descricao}</td>
-		        <td>${i.tipoCobranca}</td>
-		        <td>${i.valor}</td>
-		        <td>${i.especialidade}</td>
-		        <td>${i.idadeMinima}</td>
-		        <td>${i.idadeMaxima}</td>
-		        <td>${i.retornoProximoMes}</td>
-		        <td><a href="/saude/${i.id}/excluir">excluir</a></td>
+		      	<td>${u.nome}</td>
+		        <td>${u.email}</td>
+		        <td>${u.senha}</td>
+		        <td><a href="/usuario/${u.email}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>
 	    </tbody>

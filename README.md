@@ -1,6 +1,8 @@
 # Projeto AppProfissional - Cadastro de serviços
 
-Disciplina: Tecnologia Java e Orientação a Objetos
+Disciplinas: 
+  Tecnologia Java e Orientação a Objetos
+  Java Web e Injeção de Dependência
 
 Aluno: Eduardo Donato Carriel
 

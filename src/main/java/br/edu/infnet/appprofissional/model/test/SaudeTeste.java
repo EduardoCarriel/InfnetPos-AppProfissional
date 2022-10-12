@@ -4,21 +4,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.controller.EsteticaController;
-import br.edu.infnet.appprofissional.controller.SaudeController;
-import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
-import br.edu.infnet.appprofissional.model.domain.Estetica;
 import br.edu.infnet.appprofissional.model.domain.Saude;
+import br.edu.infnet.appprofissional.model.service.SaudeService;
 
 @Component
-@Order(5)
+@Order(6)
 public class SaudeTeste implements ApplicationRunner {
-
+	@Autowired
+	private SaudeService saudeService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		String dir = "C:/dev/";
@@ -44,7 +44,7 @@ public class SaudeTeste implements ApplicationRunner {
 						s1.setIdadeMinima(Integer.valueOf(campos[4]));
 						s1.setIdadeMaxima(Integer.valueOf(campos[5]));
 						s1.setRetornoProximoMes(Boolean.valueOf(campos[6]));
-						SaudeController.incluir(s1);		
+						saudeService.incluir(s1);		
 					} catch (Exception e) {
 						System.out.println("Ocorreu um problema: " + e.getMessage());
 					}

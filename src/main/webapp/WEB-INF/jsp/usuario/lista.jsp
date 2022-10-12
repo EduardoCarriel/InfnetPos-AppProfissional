@@ -17,6 +17,10 @@
 	  <h2>AppProfissional</h2>
 	  <p>Projeto de cadastro de serviços</p>
 	  
+	  <h3>Classe: Usuario</h3>
+	  
+	  <h4><a href="/usuario">Novo</a></h4>
+	  
 	  <h3>Cadastro de usuários</h3>	
 	  <table class="table table-bordered">
 	    <thead>

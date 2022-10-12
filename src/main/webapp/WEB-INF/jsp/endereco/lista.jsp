@@ -18,6 +18,9 @@
 	  <p>Projeto de cadastro de serviços</p>
 	  
 	  <h3>Classe: Endereco</h3>	
+	  
+	  <h4><a href="/endereco">Novo</a></h4>
+	  
 	  <table class="table table-bordered">
 	    <thead>
 	      <tr>
@@ -28,6 +31,7 @@
 	        <th>Bairro</th>
 	        <th>Cidade</th>
 	        <th>Estado</th>
+	        <th>Usuario</th>
 	        <th></th>
 	      </tr>
 	    </thead>
@@ -41,6 +45,7 @@
 		        <td>${i.bairro}</td>
 		        <td>${i.cidade}</td>
 		        <td>${i.estado}</td>
+		        <td>${i.usuario}</td>
 		        <td><a href="/endereco/${i.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>

@@ -1,45 +1,40 @@
 package br.edu.infnet.appprofissional.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import br.edu.infnet.appprofissional.AppImpressao;
 import br.edu.infnet.appprofissional.model.domain.*;
+import br.edu.infnet.appprofissional.model.service.ProfissionalService;
 
 @Controller
 public class ProfissionalController {
-	private static Map<Integer, Profissional> mapaProfissional = new HashMap<Integer, Profissional>();
-	private static Integer id = 1;
+	@Autowired
+	private ProfissionalService profissionalService;
 	
-	public static void incluir(Profissional profissional) {
-		profissional.setId(id++);
-		mapaProfissional.put(profissional.getId(), profissional);
-		AppImpressao.relatorio("Inclusão do Profissional " + profissional.getNome() + "!", profissional);
+	@GetMapping(value = "/profissional")
+	public String telaCadastro() {
+		return "profissional/cadastro";
 	}
 	
-	public static void excluir(Integer id) {
-		mapaProfissional.remove(id);
-	}
-	
-	public static Collection<Profissional> obterLista() {
-		return mapaProfissional.values();
+	@PostMapping(value = "/profissional/incluir")
+	public String inclusao(Profissional profissional) {
+		profissionalService.incluir(profissional);
+		return "redirect:/profissional/lista";
 	}
 	
 	@GetMapping(value = "/profissional/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", profissionalService.obterLista());
 		return "profissional/lista";
 	}
 	
 	@GetMapping(value = "/profissional/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		profissionalService.excluir(id);
 		return "redirect:/profissional/lista";
 	}
 }

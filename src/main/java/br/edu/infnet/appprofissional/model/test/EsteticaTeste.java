@@ -4,21 +4,22 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.controller.EnderecoController;
-import br.edu.infnet.appprofissional.controller.EsteticaController;
 import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
-import br.edu.infnet.appprofissional.model.domain.Endereco;
 import br.edu.infnet.appprofissional.model.domain.Estetica;
+import br.edu.infnet.appprofissional.model.service.EsteticaService;
 
 @Component
-@Order(2)
+@Order(4)
 public class EsteticaTeste implements ApplicationRunner {
-
+	@Autowired
+	private EsteticaService esteticaService;
+	
 	@Override
 	public void run(ApplicationArguments args) {
 		String dir = "C:/dev/";
@@ -45,7 +46,7 @@ public class EsteticaTeste implements ApplicationRunner {
 						e1.setCorporal(Boolean.valueOf(campos[5]));
 						e1.setCapilar(Boolean.valueOf(campos[6]));
 						System.out.println("Cálculo do serviço:" + e1.calcularServico(1));
-						EsteticaController.incluir(e1);			
+						esteticaService.incluir(e1);			
 					} catch (DiasRetornoInvalidoException e) {
 						System.out.println("Ocorreu um problema: " + e.getMessage());
 					}

@@ -1,24 +1,27 @@
 package br.edu.infnet.appprofissional.model.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.controller.MusculacaoController;
 import br.edu.infnet.appprofissional.model.domain.Musculacao;
+import br.edu.infnet.appprofissional.model.service.MusculacaoService;
 
 @Component
-@Order(4)
+@Order(5)
 public class MusculacaoTeste implements ApplicationRunner {
-
+	@Autowired
+	private MusculacaoService musculacaoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("## Musculação ##");
 		
 		//Exemplo com construtor
 		Musculacao m1 = new Musculacao(1,"Treino para Resistência Muscular",100,true,false,true);
-		MusculacaoController.incluir(m1);
+		musculacaoService.incluir(m1);
 		
 		//Exemplo com métodos Setters
 		Musculacao m2 = new Musculacao();
@@ -27,9 +30,9 @@ public class MusculacaoTeste implements ApplicationRunner {
 		m2.setValor(150);
 		m2.setDieta(true);
 		m2.setAvaliacaoFisica(true);
-		MusculacaoController.incluir(m2);
+		musculacaoService.incluir(m2);
 		
 		Musculacao m3 = new Musculacao(3,"Treino de Força Muscular",200,true,true,true);
-		MusculacaoController.incluir(m3);
+		musculacaoService.incluir(m3);
 	}
 }

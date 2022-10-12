@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.controller.ProfissionalController;
 import br.edu.infnet.appprofissional.exception.CepInvalidoException;
 import br.edu.infnet.appprofissional.exception.EnderecoInvalidoException;
 import br.edu.infnet.appprofissional.exception.LogradouroInvalidoException;
@@ -21,11 +21,20 @@ import br.edu.infnet.appprofissional.model.domain.Endereco;
 import br.edu.infnet.appprofissional.model.domain.Musculacao;
 import br.edu.infnet.appprofissional.model.domain.Profissional;
 import br.edu.infnet.appprofissional.model.domain.Servico;
+import br.edu.infnet.appprofissional.model.service.EnderecoService;
+import br.edu.infnet.appprofissional.model.service.ProfissionalService;
+import br.edu.infnet.appprofissional.model.service.ServicoService;
 
 @Component
-@Order(1)
+@Order(3)
 public class ProfissionalTeste implements ApplicationRunner {
-
+	@Autowired
+	private ProfissionalService profissionalService;
+	@Autowired
+	private EnderecoService enderecoService;
+	@Autowired
+	private ServicoService servicoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {		
 		String dir = "C:/dev/";
@@ -49,15 +58,19 @@ public class ProfissionalTeste implements ApplicationRunner {
 					try {
 						Set<Servico> listaServicoP1 = new HashSet<Servico>();
 						listaServicoP1.add(m1);
+						servicoService.incluir(m1);
 						listaServicoP1.add(m2);
+						servicoService.incluir(m2);
 						listaServicoP1.add(m3);
+						servicoService.incluir(m3);
 						
 						Endereco enderecoP1 = new Endereco(80330777, "Rua Teste01", 650, "Santa Quitéria", "Curitiba", "Paraná");
+						enderecoService.incluir(enderecoP1);
 						
 						Profissional p1 = new Profissional(Integer.valueOf(campos[0]), campos[1], enderecoP1, listaServicoP1);
 						p1.setEmail(campos[2]);
 						p1.setTelefoneCelular(campos[3]);
-						ProfissionalController.incluir(p1);
+						profissionalService.incluir(p1);
 					} catch (EnderecoInvalidoException | ProfissionalInvalidoException | ServicoInvalidoException | LogradouroInvalidoException | CepInvalidoException e) {
 						System.out.println("Ocorreu um problema: " + e.getMessage());
 					}

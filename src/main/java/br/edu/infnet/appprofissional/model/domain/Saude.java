@@ -1,7 +1,12 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appprofissional.exception.QuantidadeInvalidaException;
 
+@Entity
+@Table(name="TSaude")
 public class Saude extends Servico {
 	private String especialidade;
 	private int idadeMinima;

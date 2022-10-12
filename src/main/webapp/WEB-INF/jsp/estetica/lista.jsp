@@ -17,7 +17,10 @@
 	  <h2>AppProfissional</h2>
 	  <p>Projeto de cadastro de serviços</p>
 	  
-	  <h3>Classe: Estetica</h3>	
+	  <h3>Classe: Estetica</h3>
+	  
+	  <h4><a href="/estetica">Novo</a></h4>
+	  	
 	  <table class="table table-bordered">
 	    <thead>
 	      <tr>

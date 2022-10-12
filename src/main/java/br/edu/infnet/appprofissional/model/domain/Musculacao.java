@@ -1,5 +1,10 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TMusculacao")
 public class Musculacao extends Servico {
 	private boolean personalTrainer;
 	private boolean dieta;

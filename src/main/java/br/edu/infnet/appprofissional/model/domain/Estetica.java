@@ -1,7 +1,12 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
 
+@Entity
+@Table(name="TEstetica")
 public class Estetica extends Servico {
 	private int diasRetorno;
 	private boolean facial;

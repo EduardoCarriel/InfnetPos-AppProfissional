@@ -2,10 +2,21 @@ package br.edu.infnet.appprofissional.model.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
 import br.edu.infnet.appprofissional.exception.QuantidadeInvalidaException;
 import br.edu.infnet.appprofissional.interfaces.IPrinter;
 
+@Entity
+@Table(name="TServico")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Servico implements IPrinter {
 	public enum EnumTipoCobranca {
 		QUANTIDADE("Quantidade"),
@@ -30,17 +41,19 @@ public abstract class Servico implements IPrinter {
 	    }
 	}
 	
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private int codigo;
 	private String descricao;
 	protected EnumTipoCobranca tipoCobranca;
 	private float valor;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

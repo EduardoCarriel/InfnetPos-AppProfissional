@@ -1,45 +1,42 @@
 package br.edu.infnet.appprofissional.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
-import br.edu.infnet.appprofissional.AppImpressao;
 import br.edu.infnet.appprofissional.model.domain.*;
+import br.edu.infnet.appprofissional.model.service.EnderecoService;
 
 @Controller
 public class EnderecoController {
-	private static Map<Integer, Endereco> mapaEndereco = new HashMap<Integer, Endereco>();
-	private static Integer id = 1;
+	@Autowired
+	private EnderecoService enderecoServico;
 	
-	public static void incluir(Endereco endereco) {
-		endereco.setId(id++);
-		mapaEndereco.put(endereco.getId(), endereco);
-		AppImpressao.relatorio("Inclusão do Endereço!", endereco);
+	@GetMapping(value = "/endereco")
+	public String telaCadastro() {
+		return "endereco/cadastro";
 	}
 	
-	public static void excluir(Integer id) {
-		mapaEndereco.remove(id);
-	}
-	
-	public static Collection<Endereco> obterLista() {
-		return mapaEndereco.values();
+	@PostMapping(value = "/endereco/incluir")
+	public String inclusao(Endereco endereco, @SessionAttribute("user") Usuario usuario) {
+		endereco.setUsuario(usuario);
+		enderecoServico.incluir(endereco);
+		return "redirect:/endereco/lista";
 	}
 	
 	@GetMapping(value = "/endereco/lista")
-	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
+		model.addAttribute("listagem", enderecoServico.obterLista(usuario));
 		return "endereco/lista";
 	}
 	
 	@GetMapping(value = "/endereco/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		enderecoServico.excluir(id);
 		return "redirect:/endereco/lista";
 	}
 }

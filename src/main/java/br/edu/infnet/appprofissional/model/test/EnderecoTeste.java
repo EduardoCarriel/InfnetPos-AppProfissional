@@ -3,34 +3,33 @@ package br.edu.infnet.appprofissional.model.test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appprofissional.controller.EnderecoController;
-import br.edu.infnet.appprofissional.controller.ProfissionalController;
-import br.edu.infnet.appprofissional.exception.CepInvalidoException;
-import br.edu.infnet.appprofissional.exception.EnderecoInvalidoException;
-import br.edu.infnet.appprofissional.exception.LogradouroInvalidoException;
-import br.edu.infnet.appprofissional.exception.ProfissionalInvalidoException;
-import br.edu.infnet.appprofissional.exception.ServicoInvalidoException;
 import br.edu.infnet.appprofissional.model.domain.Endereco;
-import br.edu.infnet.appprofissional.model.domain.Musculacao;
-import br.edu.infnet.appprofissional.model.domain.Profissional;
-import br.edu.infnet.appprofissional.model.domain.Servico;
+import br.edu.infnet.appprofissional.model.domain.Usuario;
+import br.edu.infnet.appprofissional.model.service.EnderecoService;
+import br.edu.infnet.appprofissional.model.service.UsuarioService;
 
 @Component
-@Order(3)
+@Order(2)
 public class EnderecoTeste implements ApplicationRunner {
-
+	@Autowired
+	private EnderecoService enderecoService;
+	@Autowired
+	private UsuarioService usuarioService;
+	
 	@Override
 	public void run(ApplicationArguments args) {
 		String dir = "C:/dev/";
 		String arq = "endereco.txt";
+		
+		Usuario usuario = new Usuario("Admin", "admin@admin.com", "123456");
+		usuarioService.incluir(usuario);
 		
 		System.out.println("## Endereço ##");
 		try {
@@ -45,7 +44,8 @@ public class EnderecoTeste implements ApplicationRunner {
 					
 					try {
 						Endereco e1 = new Endereco(Integer.valueOf(campos[0]), campos[1], Integer.valueOf(campos[2]), campos[3], campos[4], campos[5]);
-						EnderecoController.incluir(e1);			
+						e1.setUsuario(usuario);
+						enderecoService.incluir(e1);			
 					} catch (Exception e) {
 						System.out.println("Ocorreu um problema: " + e.getMessage());
 					}

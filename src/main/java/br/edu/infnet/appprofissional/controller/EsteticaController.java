@@ -1,45 +1,39 @@
 package br.edu.infnet.appprofissional.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import br.edu.infnet.appprofissional.AppImpressao;
+import org.springframework.web.bind.annotation.PostMapping;
 import br.edu.infnet.appprofissional.model.domain.*;
+import br.edu.infnet.appprofissional.model.service.EsteticaService;
 
 @Controller
 public class EsteticaController {
-	private static Map<Integer, Estetica> mapaEstetica = new HashMap<Integer, Estetica>();
-	private static Integer id = 1;
+	@Autowired
+	private EsteticaService esteticaService;
 	
-	public static void incluir(Estetica estetica) {
-		estetica.setId(id++);
-		mapaEstetica.put(estetica.getId(), estetica);
-		AppImpressao.relatorio("Inclusão do Serviço " + estetica.getDescricao() + "!", estetica);
+	@GetMapping(value = "/estetica")
+	public String telaCadastro() {
+		return "estetica/cadastro";
 	}
 	
-	public static void excluir(Integer id) {
-		mapaEstetica.remove(id);
-	}
-	
-	public static Collection<Estetica> obterLista() {
-		return mapaEstetica.values();
+	@PostMapping(value = "/estetica/incluir")
+	public String inclusao(Estetica estetica) {
+		esteticaService.incluir(estetica);
+		return "redirect:/estetica/lista";
 	}
 	
 	@GetMapping(value = "/estetica/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", esteticaService.obterLista());
 		return "estetica/lista";
 	}
 	
 	@GetMapping(value = "/estetica/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		esteticaService.excluir(id);
 		return "redirect:/estetica/lista";
 	}
 }

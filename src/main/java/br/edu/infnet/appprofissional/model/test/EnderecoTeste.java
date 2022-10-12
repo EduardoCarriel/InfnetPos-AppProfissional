@@ -16,7 +16,7 @@ import br.edu.infnet.appprofissional.model.service.EnderecoService;
 import br.edu.infnet.appprofissional.model.service.UsuarioService;
 
 @Component
-@Order(2)
+@Order(1)
 public class EnderecoTeste implements ApplicationRunner {
 	@Autowired
 	private EnderecoService enderecoService;

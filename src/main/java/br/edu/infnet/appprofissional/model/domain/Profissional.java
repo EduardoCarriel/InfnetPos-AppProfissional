@@ -4,12 +4,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -29,12 +31,14 @@ public class Profissional implements IPrinter {
 	private String nome;
 	private String telefoneCelular;
 	private String email;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name="idEndereco")
 	private Endereco endereco;
-	@OneToMany
-	@JoinColumn(name="idServico")
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private Set<Servico> servicos;
+	@ManyToOne
+	@JoinColumn(name="idUsuario")
+	private Usuario usuario;
 	
 	public Profissional() {}
 	
@@ -116,6 +120,22 @@ public class Profissional implements IPrinter {
 
 	public Set<Servico> getServicos() {
 		return servicos;
+	}
+	
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	
+	public void setServicos(Set<Servico> servicos) {
+		this.servicos = servicos;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

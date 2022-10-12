@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appprofissional.model.domain.*;
 import br.edu.infnet.appprofissional.model.service.ProfissionalService;
@@ -21,14 +22,15 @@ public class ProfissionalController {
 	}
 	
 	@PostMapping(value = "/profissional/incluir")
-	public String inclusao(Profissional profissional) {
+	public String inclusao(Profissional profissional, @SessionAttribute("user") Usuario usuario) {
+		profissional.setUsuario(usuario);
 		profissionalService.incluir(profissional);
 		return "redirect:/profissional/lista";
 	}
 	
 	@GetMapping(value = "/profissional/lista")
-	public String telaLista(Model model) {
-		model.addAttribute("listagem", profissionalService.obterLista());
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
+		model.addAttribute("listagem", profissionalService.obterLista(usuario));
 		return "profissional/lista";
 	}
 	

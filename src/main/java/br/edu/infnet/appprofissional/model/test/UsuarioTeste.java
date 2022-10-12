@@ -15,7 +15,7 @@ import br.edu.infnet.appprofissional.model.domain.Usuario;
 import br.edu.infnet.appprofissional.model.service.UsuarioService;
 
 @Component
-@Order(1)
+@Order(6)
 public class UsuarioTeste implements ApplicationRunner {
 	@Autowired
 	private UsuarioService usuarioService;

@@ -32,6 +32,10 @@ public class UsuarioService {
 		usuarioRepository.deleteById(id);
 	}
 	
+	public Usuario obterUsuarioPorEmail(String email) {
+		return usuarioRepository.obterUsuario(email);
+	}
+	
 	public Collection<Usuario> obterLista() {
 		return (Collection<Usuario>) usuarioRepository.findAll();
 	}

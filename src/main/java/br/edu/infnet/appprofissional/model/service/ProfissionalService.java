@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appprofissional.AppImpressao;
 import br.edu.infnet.appprofissional.model.domain.Profissional;
+import br.edu.infnet.appprofissional.model.domain.Usuario;
 import br.edu.infnet.appprofissional.model.repository.ProfissionalRepository;
 
 @Service
@@ -21,6 +22,10 @@ public class ProfissionalService {
 	
 	public void excluir(Integer id) {
 		profissionalRepository.deleteById(id);
+	}
+	
+	public Collection<Profissional> obterLista(Usuario usuario) {
+		return (Collection<Profissional>) profissionalRepository.obterLista(usuario.getId());
 	}
 	
 	public Collection<Profissional> obterLista() {

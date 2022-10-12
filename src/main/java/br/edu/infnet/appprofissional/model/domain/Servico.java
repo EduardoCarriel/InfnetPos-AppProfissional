@@ -1,5 +1,6 @@
 package br.edu.infnet.appprofissional.model.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import br.edu.infnet.appprofissional.exception.DiasRetornoInvalidoException;
@@ -48,6 +50,8 @@ public abstract class Servico implements IPrinter {
 	private String descricao;
 	protected EnumTipoCobranca tipoCobranca;
 	private float valor;
+	@ManyToMany(mappedBy = "servicos")
+	private List<Profissional> profissionais;
 	
 	public Integer getId() {
 		return id;
@@ -83,6 +87,14 @@ public abstract class Servico implements IPrinter {
 
 	public float getValor() {
 		return valor;
+	}
+
+	public List<Profissional> getProfissionais() {
+		return profissionais;
+	}
+
+	public void setProfissionais(List<Profissional> profissionais) {
+		this.profissionais = profissionais;
 	}
 
 	public void setValor(float valor) {

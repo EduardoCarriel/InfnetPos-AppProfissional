@@ -10,7 +10,7 @@ import br.edu.infnet.appprofissional.model.domain.Musculacao;
 import br.edu.infnet.appprofissional.model.service.MusculacaoService;
 
 @Component
-@Order(5)
+@Order(3)
 public class MusculacaoTeste implements ApplicationRunner {
 	@Autowired
 	private MusculacaoService musculacaoService;

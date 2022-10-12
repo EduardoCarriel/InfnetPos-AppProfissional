@@ -15,7 +15,7 @@ import br.edu.infnet.appprofissional.model.domain.Estetica;
 import br.edu.infnet.appprofissional.model.service.EsteticaService;
 
 @Component
-@Order(4)
+@Order(2)
 public class EsteticaTeste implements ApplicationRunner {
 	@Autowired
 	private EsteticaService esteticaService;

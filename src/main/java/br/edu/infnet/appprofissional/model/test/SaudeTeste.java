@@ -14,7 +14,7 @@ import br.edu.infnet.appprofissional.model.domain.Saude;
 import br.edu.infnet.appprofissional.model.service.SaudeService;
 
 @Component
-@Order(6)
+@Order(4)
 public class SaudeTeste implements ApplicationRunner {
 	@Autowired
 	private SaudeService saudeService;

@@ -25,6 +25,9 @@ public class Usuario implements IPrinter {
 	@OneToMany
 	@JoinColumn(name="idUsuario")
 	private List<Endereco> enderecos;
+	@OneToMany
+	@JoinColumn(name="idProfissional")
+	private List<Profissional> profissionais;
 	
 	public Usuario() {}
 	
@@ -72,6 +75,14 @@ public class Usuario implements IPrinter {
 
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
+	}
+
+	public List<Profissional> getProfissionais() {
+		return profissionais;
+	}
+
+	public void setProfissionais(List<Profissional> profissionais) {
+		this.profissionais = profissionais;
 	}
 
 	@Override
